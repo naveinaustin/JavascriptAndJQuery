@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+</HEAD>
+
+<BODY>
+</BODY>
+</HTML>
+
+<script type="text/javascript">
+var arr = [];
+arr[2] = 5;
+
+for(var i in arr) {
+	alert(arr[i]);
+}
+
+for(var i = 0; i < arr.length; i++) {
+	alert(arr[i]);
+}
+
+var o = {'name':'Batman', 'age':33, 'city':'Gotham City'};
+for (var p in o) {
+    console.log(p+': '+o[p]);
+}
+
+var o2 = [new String('a'), new String('b'), new String('c')];
+for (var p in o2) {
+    console.log(o2[p]);
+}
+</script>

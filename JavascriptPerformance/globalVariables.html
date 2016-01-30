@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+</HEAD>
+
+<BODY>
+</BODY>
+</HTML>
+
+<script type="text/javascript">
+function timeDifference(laterdate,earlierdate, msg) {
+    var difference = laterdate.getTime() - earlierdate.getTime();
+	
+	if(!msg) {
+		msg = '';
+	}
+	else {
+		msg = msg + ' - ';
+	}
+	document.write(msg + 'difference = ' + difference + ' m/s');
+	document.write('<br/>');
+}
+
+function showExecuteTime(func) {
+	var earlierdate = new Date();
+	func();
+	var laterdate = new Date();
+	timeDifference(laterdate,earlierdate);
+}
+
+var i, s = '';
+var interations = 2000000;
+
+function testGlobalVariables() {
+  for( i = 0; i < interations; i++ ) {
+    s += i;
+  }
+}
+
+function testLocalVariables() {
+  var t = '';
+  for( var j = 0; j < interations; j++ ) {
+    t += j;
+  }
+}
+
+showExecuteTime(testGlobalVariables);
+showExecuteTime(testLocalVariables);
+</script>

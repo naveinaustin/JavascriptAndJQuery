@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+</HEAD>
+
+<BODY>
+
+</BODY>
+
+</HTML>
+<script type="text/javascript">
+function test() {
+	alert(test_var);
+}
+
+var status;
+
+function testLocalVar() {
+	window.status = "hello! how are you."
+	test_var = 45;
+	//alert(window.status);
+	alert(window.test_var);
+	status = "this overrides"
+	
+}
+//test();
+testLocalVar();
+//test();
+</script>

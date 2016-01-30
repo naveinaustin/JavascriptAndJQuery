@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+</HEAD>
+
+<BODY>
+</BODY>
+</HTML>
+
+<script type="text/javascript">
+/*function timeDifference(laterdate,earlierdate) {
+    var difference = laterdate.getTime() - earlierdate.getTime();
+ 
+    var daysDifference = Math.floor(difference/1000/60/60/24);
+    difference -= daysDifference*1000*60*60*24
+ 
+    var hoursDifference = Math.floor(difference/1000/60/60);
+	difference -= hoursDifference*1000*60*60
+ 
+    var minutesDifference = Math.floor(difference/1000/60);
+    difference -= minutesDifference*1000*60
+ 
+    var secondsDifference = Math.floor(difference/1000);
+	
+	document.write('difference = ' + daysDifference + ' day/s ' + hoursDifference + ' hour/s ' + minutesDifference + ' minute/s ' + secondsDifference + ' second/s ');
+	document.write('<br/>');
+ 
+}*/
+
+function timeDifference(laterdate,earlierdate, msg) {
+    var difference = laterdate.getTime() - earlierdate.getTime();
+	
+	if(!msg) {
+		msg = '';
+	}
+	else {
+		msg = msg + ' - ';
+	}
+	document.write(msg + 'difference = ' + difference + ' m/s');
+	document.write('<br/>');
+}
+
+var earlierdate = new Date();
+var laterdate = new Date();
+
+var test = [1, 2, 3, 4, 5]; 
+var iterations = 2;
+
+function testEval(index) {
+	 var result;
+	 eval('result = test[' + index + ']');
+	 return result;
+}
+
+function testWOEval(index) {
+	var result;
+	result = test[index];
+	return result;
+}
+
+
+function execute(func) {
+	for(var i = 0; i < iterations; i++) {
+		for(var j = 0; j < 5; j++) {
+			var result = func(j);
+		}
+	}
+}
+
+function showExecuteTime(func) {
+	earlierdate = new Date();
+	execute(func);
+	laterdate = new Date();
+	timeDifference(laterdate,earlierdate);
+}
+
+showExecuteTime(testEval);
+showExecuteTime(testWOEval);
+
+var bo = new Boolean();
+//alert(bo);
+
+</script>
