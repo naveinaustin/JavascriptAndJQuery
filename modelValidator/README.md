@@ -15,8 +15,11 @@ class User {
 }
 ```
 
-A summary of the constraints provided by Grails can be got at this link:
+A summary of the constraints provided by Grails can be found at this link:
 https://grails.github.io/grails-doc/3.0.x/ref/Constraints/Usage.html
+
+## modelValidator
+The modelValidator plugin tries to mimic the same validation that grails does for its domains.
 
 Usage
 -----
