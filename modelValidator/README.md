@@ -94,16 +94,16 @@ Currently, a limited feature set of the constraint has been implmented. The file
 Anyone wanting to extend the validation framework can look into `modelValidatorRules.js` on how to add a new validation.
 You will have to add a rule with the name of the rule as key and a function that takes two params. First is the constraint that you want to apply. Second, the actual value to test. You can then use these values to write a validation. Your function should return true always. If it fails validation return false.
 
-An Example for Scale:
+An Example for Scale constraint:
 ```javascript
 $.modelvalidator.addRule("scale", function (constraintValue, checkValue) {
-	var check = false;
+    var check = false;
 
-	var re = new RegExp("^\\s*-?(\\d+(\\.\\d{1," + constraintValue + "})?|\\.\\d{1," + constraintValue + "})\\s*$");
-	if (!re.test(checkValue)) {
-		check = true;
-	}
+    var re = new RegExp("^\\s*-?(\\d+(\\.\\d{1," + constraintValue + "})?|\\.\\d{1," + constraintValue + "})\\s*$");
+    if (!re.test(checkValue)) {
+        check = true;
+    }
 
-	return check;
+    return check;
 });
 ```
