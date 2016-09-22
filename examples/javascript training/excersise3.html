@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+h2 {
+    text-shadow: 5px 5px 2px #FF0000
+}
+
+.border {
+	border: 2px dotted;
+	border-color: black;
+	padding: 5px;
+	width: 50%;
+	float:left;
+}
+
+.inner-border {
+	border: 2px solid;
+	border-color: black;
+	padding: 5px;
+	margin: 5px;
+	column-count: 3;
+	-moz-column-count:3;
+	-webkit-column-count:3;
+}
+
+.border-left {
+	width: 150px;
+	margin-right: 4px;
+	margin-left: auto;
+}
+
+.scale {
+	transform: scale(2,4);
+}
+x
+
+div.width:hover{
+	text-shadow: 5px 5px 2px #FF0000
+}
+</style>
+</head>
+<body>
+	<div class="border">
+		<h2>Floating</h2>
+		<div class="inner-border border-left">text to left with multi line should come here</div>
+		<div class="inner-border">text to middle with multi line should come here text to middle with multi line should come here text to middle with multi line should come heretext to middle with multi line should come heretext to middle with multi line should come heretext to middle with multi line should come heretext to middle with multi line should come heretext to middle with multi line should come here</div>
+		<div class="inner-border">text to left with multi line should come here</div>
+	</div>
+	
+	
+	<div>Text one</div>
+	<div class="scale">Text two</div>
+	
+	<div class="width">Text three</div>
+	
+	<input id="email" type="email"/>
+</body>
+</html>

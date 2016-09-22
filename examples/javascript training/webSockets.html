@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+
+</style>
+</head>
+<body>
+	<div id="output"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+var wsUri = "wss://echo.websocket.org/";
+var output;
+
+function init() {
+	testWebSocket();
+}
+
+function testWebSocket() {
+	output = document.getElementById("output");
+	websocket = new WebSocket(wsUri);
+	websocket.onopen = function (evt) {onOpen(evt)};
+	websocket.onclose = function (evt) {onClose(evt)};
+	websocket.onmessage = function (evt) {onMessage(evt)};
+	websocket.onerror = function (evt) {onError(evt)};
+}
+
+function onOpen(evt) {
+	writeToScreen("CONNECTED");
+	doSend("websocket demo....");
+}
+
+function onClose(evt) {
+	writeToScreen("DISCONNECTED");
+}
+
+function onMessage(evt) {
+	writeToScreen("<span style='color:blue;'>RESPONSE: " + evt.data + "</span>");
+	websocket.close();
+}
+
+function onError(evt) {
+	writeToScreen("<span style='color:red;'>RESPONSE: " + evt.data + "</span>");
+}
+
+function doSend(message) {
+	writeToScreen("SENT: " + message); websocket.send(message);
+}
+
+function writeToScreen(message) {
+	var pre = document.createElement("p");
+	pre.style.wordWrap = "break-word";
+	pre.innerHTML = message;
+	output.appendChild(pre);
+}
+
+window.addEventListener("load", init, false);
+</script>

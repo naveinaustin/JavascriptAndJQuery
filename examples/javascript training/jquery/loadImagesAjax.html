@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+
+</style>
+</head>
+<body>
+	<div id="content"></div>
+	
+	<div id="content1">one</div>
+	<div id="content1">two</div>
+	
+	<div>
+		<div>
+			<div>button</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="/CSS5JStraining/js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+	$.ajax({
+	  type: "GET",
+	  url: "image.json",
+	  success: function(data) {
+		  var imagesList = data.split('|');
+		  console.log(imagesList);
+		  $(imagesList).each(function(index, url) {
+			  console.log(url);
+			  $('#content').after('<img src="../../css/' + url + '" />')  
+		  });
+		  
+		  
+	  },
+	error: function(data) { console.log(data); }
+	  
+	})	
+});
+</script>

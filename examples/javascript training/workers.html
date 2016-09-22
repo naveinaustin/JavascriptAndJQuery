@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+
+</style>
+</head>
+<body>
+<input type="text" id="txt" value=""/>
+<div id="disp"></div>
+<input type="button" onclick="sendMsg()" value="send message"/>	
+<input type="button" onclick="stopWorker()" value="terminate worker"/>
+<input type="button" onclick="startWorker()" value="start worker"/>
+
+<h3>Timer Example</h3>
+<!-- <input type="button" onclick="startTimerWorker()" value="start worker"/>
+<input type="button" onclick="stopTimerWorker()" value="terminate worker"/> -->
+<input type="button" onclick="startTimer()" value="start timer"/>
+<input type="button" onclick="stopTimer()" value="stop timer"/>
+<div id="timer"></div>
+</body>
+</html>
+<script type="text/javascript">
+var worker;
+
+function messageHandler(evt) {
+	document.getElementById('disp').innerHTML = evt.data;	
+}
+
+function errorHandler(evt) {
+	document.getElementById('disp').innerHTML = "NO DATA";	
+}
+
+
+function sendMsg () {
+	if(worker) {
+		worker.postMessage(document.getElementById('txt').value);
+	}
+}
+
+function stopWorker() {
+	worker.terminate();
+}
+
+function startWorker() {
+	if(typeof(Worker) !== 'undefined') {
+		worker = new Worker('worker.js');
+		worker.addEventListener('message', messageHandler, true);
+		worker.addEventListener('error', errorHandler, true);
+	}
+}
+
+
+
+
+
+var timerWorker;
+
+function messageHandler2(evt) {
+	console.log(evt.data)
+	document.getElementById('timer').innerHTML = evt.data;	
+}
+
+function startTimerWorker() {
+	if(typeof(Worker) !== 'undefined') {
+		console.log('timer worker')
+		timerWorker = new Worker('timerWorker.js');
+		timerWorker.addEventListener('message', messageHandler2, true);
+		timerWorker.addEventListener('error', errorHandler, true);
+	}	
+}
+
+function startTimer() {
+	startTimerWorker();
+	timerWorker.postMessage(10);	
+}
+
+function stopTimer() {
+	stopTimerWorker();
+}
+
+function stopTimerWorker() {
+	timerWorker.terminate();
+}
+
+
+</script>

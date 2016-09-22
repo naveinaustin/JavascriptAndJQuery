@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+div {
+	border: 1px solid black;
+	padding: 20px;
+}
+</style>
+</head>
+<body>
+<div id="outer">
+	<div id="inner"></div>
+</div>
+
+<table class="data" id="cart">
+   <thead>
+     <tr>
+       <th>name</th>
+       <th>qty</th>
+       <th>total</th>
+     </tr>
+   </thead>
+   <tr class="template" style="display:none;">
+   		<td><span class="item_name">Name</span></td>
+   		<td><span class="item_qty">qty</span></td>
+   		<td><span class="item_total">total</span></td>
+   </tr>
+</table>	
+
+<a href="test1.html">content 1</a>
+<a href="test2.html">content 2</a>
+<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="/CSS5JStraining/js/jquery-1.9.1.js"></script>
+
+<script type="text/javascript">
+function template(row, cart) {
+	row.find('.item_name').text(cart.name);
+	row.find('.item_qty').text(cart.qty);
+	row.find('.item_total').text(cart.total);
+	return row;
+}
+
+$(document).ready(function() {	
+	
+	$('div').click(function(evt) {
+		console.log($(this).attr("id"));
+	});
+	
+	var newRow = $('#cart .template').clone().removeClass('template');
+	var cartItem = {
+			name: 'text',
+			qty: '10',
+			total: 450
+	};
+	
+	template(newRow, cartItem).appendTo('#cart').fadeIn();
+	
+	$('a').click(function(evt) {
+		evt.preventDefault();
+		$("#div1").load($(evt.target).attr("href"));
+	});
+	
+	$('#div1').hover(
+				function(evt) { 
+					$(evt.target).find('div').css('background-color', 'lightgrey'); 
+				}, 
+				function(evt) {
+					$(evt.target).find('div').css('background-color', 'white');
+				}
+	);
+		
+});
+
+
+</script>

@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Storage</title>
+<style media="screen" type="text/css">
+
+</style>
+</head>
+<body onLoad="loadDemo()">
+Latitude: <div id="latitude"></div>
+Longitude: <div id="longitude"></div>	
+</body>
+</html>
+<script type="text/javascript">
+function loadDemo () {
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(updateLocation);
+	}
+}
+
+function updateLocation(position) {
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	
+	
+	document.getElementById("latitude").innerHTML = latitude;
+	document.getElementById("longitude").innerHTML = longitude;	
+}
+
+</script>

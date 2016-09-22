@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+
+</style>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+var source
+
+function initAll() {
+	if(!!window.EventSource) {
+		source = new EventSource('sseservlet');
+		console.log(source);
+	}
+	
+	source.addEventListener('message', function(e) {
+		document.body.innerHTML += e.data + '<br/>'	
+	}, false);
+	
+	source.addEventListener('open', function(e) {
+		console.log('SSE opened')
+	}, false);
+	
+	source.addEventListener('message', function(e) {
+		if(e.readyState ==  EventSource.CLOSED) {
+			console.log('SSE closed');
+		}	
+		console.log(e.data);
+	}, false);
+}
+
+function connClose() {
+	source.close();
+}
+
+window.addEventListener('load', initAll, false);
+
+</script>

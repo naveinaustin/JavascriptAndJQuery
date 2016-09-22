@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+.rounded-container {
+	width: 580px;
+	border-radius: 10px;
+	border: 1px solid;
+	padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+	padding-left: 0;
+}
+
+.border {
+	border: 2px solid red;
+}
+
+.nav {
+	width: 150px;
+	height: 500px;
+}
+
+.form {
+	float:right;
+}
+</style>
+</head>
+<body>
+	<header><h1>Credit Card Application</h1></header>
+	<nav class="border nav">
+		<div>Links</div>
+		<ul>
+			<li>Already User</li>
+			<li>sign up</li>
+		</ul>
+	</nav>
+	<form class="rounded-container form">
+		<h3>Sign Up Today</h3>
+		
+		<p>No Fees</p> 
+		<p>Limited Period Offer</p> 
+		
+		<p>Note: We recommend that you seek your family approval before you sign up.</p> 
+		
+		<p><label>Name: </label><input type="text" id="name" placeholder="First and Last Name" required/></p> 
+		<p><label>Telephone: </label><input type="tel" id="telephone" placeholder="(XXX)" required="true" pattern="[0-9]{4,6}"/></p> 
+		<p>Email: <input type="email" id="email" placeholder="For Confirmation Only" required autocomplete="off"/></p> 
+		<p>DOB: <input type="date" id="dob" placeholder="yyyy-mm-dd" required="true"/></p> 
+		<div>
+			<fieldset>
+				<legend>Card Type</legend>
+				<input type="radio" name="group1" value="silver" required> Silver<br/>
+				<input type="radio" name="group1" value="gold"> Gold<br/>
+				<input type="radio" name="group1" value="platinum"> Platinum<br/>
+			</fieldset>
+		</div>
+		<input type="Submit"/>
+	</form>
+	<aside>
+		<img alt="" src="../images/neptune.jpg">
+		Address ICICI Bank, Mumbai
+	</aside>
+	<footer><h4>Powered by HTML5</h4></footer>
+	<test-tag>text to show</test-tag>
+</body>
+</html>

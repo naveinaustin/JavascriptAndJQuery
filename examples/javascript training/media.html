@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+header {
+	border: 1px dashed black;
+}
+
+nav {
+	border: 1px dashed black;
+	width: 140px;
+	float: left;
+	margin: 10px;
+    padding: 10px;
+}
+
+aside {
+	border: 1px dashed black;
+	width: 140px;
+	float: right;
+	margin: 10px;
+    padding: 10px;
+    margin: 10px 8px 10px 0;
+}
+
+footer {
+	border: 1px dashed black;
+	float: left;
+	width: 100%;
+}
+
+#content {
+	width: 60%;
+	border: 1px dashed black;
+	float: left;
+	margin: 10px;
+    padding: 10px;
+}
+
+#main-div {
+	display: table;
+	width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+
+	nav {
+		border: 1px dashed black;
+		width: 140px;
+		float: right;
+		margin: 10px;
+	    padding: 10px;
+	}
+	
+	nav {
+		width: 95%;
+	}
+	
+	li {
+		display: inline;
+		padding: 10px;
+		margin-left: 10px;
+		
+	}
+
+	#content {
+		width: 90%;
+	}
+
+	aside {
+		width: 95%;
+	}
+	
+	footer:after {
+		content: '  smaller window';
+	}
+}
+</style>
+</head>
+<body>
+	<header><h1>Adaptive Layout with Media Queries</h1></header>
+	<div id="main-div">
+		<nav>
+			<ul>
+				<li>home</li>
+				<li>about</li>
+				<li>contact</li>
+			</ul>
+		</nav>
+		<div id="content">Fusce ut sem est. In eu sagittis felis. In gravida arcu ut neque ornare vitae rutrum turpis vehicula. Nunc ultrices sem mollis metus rutrum non malesuada metus fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque interdum rutrum quam, a pharetra est pulvinar ac. Vestibulum congue nisl magna. Ut vulputate odio id dui convallis in adipiscing libero condimentum. Nunc et pharetra enim. Praesent pharetra, neque et luctus tempor, leo sapien faucibus leo, a dignissim turpis ipsum sed libero. Sed sed luctus purus. Aliquam faucibus turpis at libero consectetur euismod. Nam nunc lectus, congue non egestas quis, condimentum ut arcu. Nulla placerat, tortor non egestas rutrum, mi turpis adipiscing </div>
+		<aside>the page is a demo for media queries</aside>
+	</div>
+	<footer>Viewing 800px or more mode</footer>
+</body>
+</html>
+<script type="text/javascript" src="/CSS5JStraining/js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+
+
+</script>

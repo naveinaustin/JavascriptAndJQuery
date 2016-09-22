@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+
+</style>
+</head>
+<body>
+	<label>Search</label><input type="text" value="" id="searchField"/><br/>
+	<br/>
+	<div id="content"></div>	
+</body>
+</html>
+<script type="text/javascript" src="/CSS5JStraining/js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+var defaultSearch = "dhoni"
+
+function twitterSearch(searchTerm) {
+	$.getJSON("http:////search.twitter.com/search.json?q=" + searchTerm + "&callback=?", function(data){
+		$.each(data.results, function() {
+			$('<div></div>')
+				.hide()
+				.append('<img src="' + this.profile_image_url + '"/>')
+				.append('<span><a href="http://www.twitter.com/"' + this.from_user + '>' + this.from_user + '</a>&nbsp;' + this.text + '</span>')
+				.appendTo('#content').fadeIn();
+		});
+	});		
+}
+
+$(document).ready(function() {
+	twitterSearch(defaultSearch);
+	
+	$('#searchField').keypress(function(evt) {
+		if ( evt.which == 13 ) {
+			$('#content').text('');
+			twitterSearch(evt.target.value);	
+		}
+	});
+});
+
+
+
+</script>

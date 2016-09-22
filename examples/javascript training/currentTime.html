@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style media="screen" type="text/css">
+.rounded-container {
+	width: 50px;
+	text-align: center;	
+	border: 1px solid;
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+	<h1>Current Time</h1>
+	Local time: <input type="text" value="" id="timeBox"/>
+	<br/>
+	Today is: <span id="dayDisp"></span>
+		<br/>	<br/>
+	<input id="slider" type="range" min="0" max="100" step="1" value="0" onchange="changeRounded(this.value)"/>
+	<span id="rangeSelected">0</span>
+	
+	<div class="rounded-container" id="borderTest">show me a rounded border</div>
+</body>
+</html>
+<script type="text/javascript" src="/CSS5JStraining/js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+	setInterval(function() {
+		var today = new Date();
+		//var time = getNumberWithLeaderZero(today.getHours()) + ":" + getNumberWithLeaderZero(today.getMinutes()) + ":" + getNumberWithLeaderZero(today.getSeconds());
+		var time = today.toLocaleTimeString();
+		document.getElementById('timeBox').value = time;
+		
+		//var day = today.getDay() + ", " + today.getDate() + " " + today.getMonth() + " " + today.getFullYear();
+		document.getElementById('dayDisp').innerHTML = getTodayDisplay();
+	}, 1000);
+	
+	function getTodayDisplay () {
+		var mydate = new Date();
+		var day=mydate.getDay()
+	    var month=mydate.getMonth()
+	    var daym=mydate.getDate()
+	    var year=mydate.getYear()
+	    
+	    if (year < 1000) {
+	    	year+=1900;
+	    }
+        	
+	    
+	    if (daym<10)
+	        daym="0"+daym
+	        
+	    var dayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday",
+	                            "Friday","Saturday")
+	    var montharray=new Array("January","February","March","April","May","June",
+	                            "July","August","September","October","November","December")
+	    
+	    return dayarray[day]+", "+montharray[month]+" "+daym+", "+year
+	}
+	function getNumberWithLeaderZero(num) {
+		if(num < 10) {
+			return "0"+num;
+		}
+		else {
+			return num;
+		}
+	}
+	
+	function changeRounded(thisValue) {
+		document.getElementById('rangeSelected').innerHTML = thisValue;
+		document.getElementById('borderTest').style.borderRadius = (parseInt(thisValue)/2.8) + "px";
+      }
+</script>
