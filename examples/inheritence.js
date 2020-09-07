@@ -1,3 +1,4 @@
+//Sample Running Code - https://jsfiddle.net/1nptq7g6/1/
 //Create a BaseService that gets a Token
 function BaseService () {
 	 BaseService.prototype.getToken = function() {
